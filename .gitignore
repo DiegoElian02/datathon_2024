@@ -1,0 +1,28 @@
+# Archivos de datos
+*.csv
+*.xlsx
+*.parquet
+
+# Archivos de modelos
+*.pkl
+*.h5
+
+# Archivos de resultados
+*.txt
+*.json
+
+# Directorios de entornos virtuales
+venv/
+env/
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Archivos de caché y registros
+__pycache__/
+*.log
+
+# Otros archivos y directorios generados
+*.pyc
+.DS_Store
