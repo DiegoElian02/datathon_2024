@@ -359,7 +359,7 @@ with col2:
         
         st.subheader("Predicción de Productos:")
         prediction_pro_with_mean = [x + y for x, y in zip(prediction_pro, means_products)]
-        st.write(pd.DataFrame(prediction_pro, columns=productos))
+        st.write(pd.DataFrame(prediction_pro_with_mean, columns=productos))
     df_opti = pd.read_parquet('data/Results_OptimalBoxDistribution.parquet')
     df_html = df_opti.to_html(index=True)
 
