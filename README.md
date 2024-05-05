@@ -11,7 +11,7 @@ Una vez tenemos nuestra predicción de la demanda podemos generar un modelo para
 Teniendo esto en cuenta, haremos una optimización multiobjetivo en donde
 
 $$
-\text{Sea     }R_v,a = \begin{cases} 
+\text{Sea     }R_v = \begin{cases} 
 1 & \text{Si el vuelo $v$ se reabastece de productos}, \\
 0 & \text{De otra forma}.
 \end{cases}
