@@ -10,7 +10,7 @@ Una vez tenemos nuestra predicción de la demanda podemos generar un modelo para
 
 Teniendo esto en cuenta, haremos una optimización multiobjetivo en donde
 
-- $$
+$$
 \text{Sea     }R_v,a = \begin{cases} 
 1 & \text{Si el vuelo $v$ se reabastece de productos}, \\
 0 & \text{De otra forma}.
@@ -22,10 +22,12 @@ $$
 Ahora tenemos 2 funciones objetivo. La primera se enfoca en minimizar el desperdicio o sobras de los aviones y la segunda minimiza la cantidad de veces que se tiene que reabastecer un avion. 
 
 Minimizamos la diferencia que hay entre cada producto abastecido en el avion y su demanda. 
+
 1) $$\text{Min      } \sum_v \sum_p ProductoEnCaja_{p,t} * C_{t,v} - Demanda_{p,v}$$
 
 
 Minimizamos la cantidad de veces que se rabastecen los aviones. 
+
 2) $$\text{Min      } \sum_v R_{v}$$
 
 Ahora tenemos que este modelo debe estar sujeto a las restricciones:
@@ -36,5 +38,5 @@ $$R_v * 2^{30} \geq \sum_t C_{t,v} \quad \quad \forall\ v$$
 - Nuestra demanda debe ser satisfecha siempre.
 $$ProductoEnCaja_{p,t} * C_{t,v} \geq Demanda_{p,v} \quad \quad \forall \ p,v$$
 
-- Tenemos un límite de cajas que podemos agregar al avión
-$$ \sum_t C_{t,v} \leq LimiteCajas$$
+- Tenemos un límite de cajas que podemos agregar al avión.
+$$\sum_t C_{t,v} \leq LimiteCajas$$
