@@ -72,7 +72,7 @@ pydeck==0.9.0
 pyparsing==3.1.2
 # python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1709299778482/work
 pytz==2024.1
-pywin32==306
+# pywin32==306
 # pyzmq @ file:///D:/bld/pyzmq_1713635729850/work
 referencing==0.35.1
 requests==2.31.0
