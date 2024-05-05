@@ -8,7 +8,7 @@ import pickle
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderServiceError, GeocoderTimedOut
 import os
-print(os.path)
+st.write(os.path)
 
 with open('models/preprocessor.pkl', 'rb') as f:
     preprocessor = pickle.load(f)
