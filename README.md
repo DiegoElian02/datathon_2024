@@ -2,7 +2,7 @@
 
 Tenemos un ensable de varios modelos que trabajan en conjunto para generar una predicción de los pasajeros futuros, los productos que se van a vender en esos vuelos y optimizar el reabastecimiento de estos productos en los diferentes aeropuertos disponibles. 
 
-Tenemos el deply del modelo en la nube de streamlit y una demo se puede ver en [Demo App]([URL](https://viva-optimizer.streamlit.app/)). 
+Tenemos el deply del modelo en la nube de streamlit y una demo se puede ver en [Demo App](https://viva-optimizer.streamlit.app/). 
 
 ## Estructura del Repositorio
 Tenemos los códigos finales en la carpeta de src la cual se utiliza para generar los resultados de la app. Sin embargo, es más facil leer y tenemos implementaciones más robustas en otros archivos los cuales tienen todos los requisitos del proyecto. 
