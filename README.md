@@ -2,6 +2,40 @@
 
 ## Modelado de pasajeros
 
+Se ha establecido el objetivo de predecir el volumen de pasajeros dada una base de datos que contiene la siguiente información de diferentes vuelos:
+
+1) Flight_ID: ID único de cada vuelo.\\
+
+2) Aeronave: ID único por aeronave.\\
+
+3) DepartureStation: Aeropuerto de salida del vuelo.\\
+
+4) ArrivalStation: Aeroupuerto de llegada del vuelo.\\
+
+5) Destination_Type / Origin_Type: Tipo de destino y de origen de cada vuelo.\\
+
+6) STD: Timestamp de salida del vuelo.\\
+
+7) STA: Timestamp de aterrizaje del vuelo.\\
+
+8) Capacity: Capacidad real de pasajeros del avión.\\
+
+9) Passengers: Cantidad de personas que abordaron el vuelo.\\
+
+10) Bookings: Total de reservas del vuelo.\\
+
+Es importante tener en consideración que se tiene información de vuelos a partir del 2 de Enero de 2023 hasta algunas fechas ya reservadas para 2025, sin embargo, únicamente se tiene información de la cantidad de pasajeros y bookings de vuelos de 2023, mientras que el resto están dados por NaN.
+
+Para limpiar la base de datos fue necesario deshacerse de los NaN, por lo que se ha realizado un conteo total de los registros nulos dentro del dataframe. Se obtuvo que existen 80,000 registros nulos dentro de la variable 'Aeronave', mientras que habían 123,500 registros nulos en las variables de 'Passengers' y 'Bookings'. También hubo un solo registro nulo en columnas como 'DepartureStation', 'ArrivalStation', 'Destination_Type' y 'Origin_Type'.
+
+Para fines de este modelo, se han eliminado las columnas 'Flight_ID', 'Aeronave' y 'Bookings', ya que las primeras dos no representan información importante que el algoritmo deba considerar a la hora de tomar una decisión (la característica importante de la aeronave es la capacidad y está dada en una columna diferente). Por su parte, la variable 'Passengers' ya contiene los clientes que realizaron alguna reserva, por lo que predecir esta variable hace despreciable la columna 'Bookings'. Este proceso ha hecho que los registros nulos desaparezcan, dejando únicamente las columnas con un valor nulo en ellas. Para estos casos, se han eliminado las filas totales (2) que seguían contando con NaN.
+
+Las siguientes variables que se modificaron para el modelo fueron 'STD' y 'STA'. Se crearon columnas adicionales en las que se separaron la fecha de despegue ('Date_STD'), la hora de despegue ('Time_STD'), la fecha de aterrizaje ('Date_STA') y la hora de aterrizaje ('Time_STA'). Además, las horas de despegue y aterrizaje han sido redondeadas para facilitar el entrenamiento del algoritmo. De igual manera, se ha agregado una columna que indique si la fecha del año es temporada alta o no, considerando las vacaciones de verano, las vacaciones de invierno, semana santa y algunos asuetos, todo con base en el calendario de la SEP de México.
+
+Las columnas de fecha de aterrizaje y fecha de despegue se han modificado para que únicamente muestren el número de mes en el que se realizó el viaje, dado que solamente se tiene información de un año, lo que hace que la información del año del vuelo sea despreciable, al igual que el día específico (solamente se estudia una vez cada día del año por lo que no es posible encontrar patrones complejos).
+
+Finalmente, para tener la información lista para comenzar a trabajar con los modelos de predicción, se hizo un duplicado de la base de datos creando columnas 'dummies' para las variables de 'DepartureStation', 'ArrivalStation', 'Destination_Type' y 'Origin_Type', de manera que algunos de los algoritmos de regresión pudieran leer la información de una manera más sencilla. Por su parte, las columnas que contenían la hora de despegue y la hora de aterrizaje se modificaron para que únicamente contuvieran el número de hora (0-23). Se creó un csv adicional con ambas bases de datos (con 'dummies' y sin ellos) para facilitar la lectura en el futuro.
+
 ## Modelado de demanda de productos
 
 ## Modelo Optimizador
