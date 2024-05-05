@@ -13,6 +13,8 @@ Tenemos los códigos finales en la carpeta de src la cual se utiliza para genera
 
 - [Modelo de Prediccion de Pasajeros:](src/prod_pred.py) - Notebook en donde agregamos ademas del modelo general para productos, una colección de modelos especializados para los productos más vendidos.
 
+- [Optimizador de Recargas:](test/Optimizacion/FinalModel.ipynb) - Notebook en donde tenemos el modelo optimizador explicado paso a paso. Tambien se tiene su analogo para el deploy en un ``.py`` en `src`.
+
 
 ## Modelado de pasajeros
 
