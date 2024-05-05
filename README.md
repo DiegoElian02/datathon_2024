@@ -7,11 +7,11 @@ Tenemos el deply del modelo en la nube de streamlit y una demo se puede ver en [
 ## Estructura del Repositorio
 Tenemos los códigos finales en la carpeta de src la cual se utiliza para generar los resultados de la app. Sin embargo, es más facil leer y tenemos implementaciones más robustas en otros archivos los cuales tienen todos los requisitos del proyecto. 
 
-- [Modelo de Prediccion de Pasajeros:](test/Passengers.ipynb) - Notebook en donde tenemos nuestro modelo final y más robusto de predicción de pasajeros el cual tiene el agregado de tomar datos metereológicos externos para realizar un mejor ajuste a muestra predicción.
+- [Modelo de Predicción de Pasajeros:](test/Passengers.ipynb) - Notebook en donde tenemos nuestro modelo final y más robusto de predicción de pasajeros el cual tiene el agregado de tomar datos metereológicos externos para realizar un mejor ajuste a muestra predicción.
 
-- [Modelo de Prediccion de Pasajeros:](src/prod_pred.py) - Archivo de python en el cual entrenamos la red neuronal encargada de manera general predecir la cantidad de producto vendido.
+- [Modelo de Predicción de Productos:](src/prod_pred.py) - Archivo de python en el cual entrenamos la red neuronal encargada de manera general predecir la cantidad de producto vendido.
 
-- [Modelo de Prediccion de Pasajeros:](src/prod_pred.py) - Notebook en donde agregamos ademas del modelo general para productos, una colección de modelos especializados para los productos más vendidos.
+- [Modelo de Predicción de Productos Específicos:](testModeloProductos.ipynb) - Notebook en donde agregamos ademas del modelo general para productos, una colección de modelos especializados para los productos más vendidos. Este necesita del código del modelo general por lo que lo importante son las ultimas celdas. 
 
 - [Optimizador de Recargas:](test/Optimizacion/FinalModel.ipynb) - Notebook en donde tenemos el modelo optimizador explicado paso a paso. Tambien se tiene su analogo para el deploy en un ``.py`` en `src`.
 
