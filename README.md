@@ -40,3 +40,5 @@ $$ProductoEnCaja_{p,t} * C_{t,v} \geq Demanda_{p,v} \quad \quad \forall \ p,v$$
 
 - Tenemos un límite de cajas que podemos agregar al avión.
 $$\sum_t C_{t,v} \leq LimiteCajas$$
+
+Cabe recalcar que se utiliza un metodo lexicográfico para la solución multiobjetivo en donde nuestra primera función objetivo no puede desviarse más del 5% al hacer la segunda optimización. 
