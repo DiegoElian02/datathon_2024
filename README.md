@@ -38,6 +38,31 @@ Finalmente, para tener la información lista para comenzar a trabajar con los mo
 
 ## Modelado de demanda de productos
 
+### Descripción del Proceso
+El objetivo del modelo es predecir la cantidad de productos vendidos en vuelos, basándose en características del vuelo como la estación de salida, la estación de llegada, el tipo de destino, entre otros.
+
+### Preparación de los Datos
+
+1. **Carga de Datos:** Los datos se cargan desde un archivo Parquet que contiene tanto las características de los vuelos como la cantidad de productos vendidos.
+2. **Limpieza de Datos:** Se eliminan los valores faltantes y se reinicia el índice del DataFrame.
+3. **Transformación de Fechas:** Las columnas de fecha y hora son convertidas a `datetime`, extrayendo la hora y el día de la semana para la salida (`STD`) y llegada (`STA`) del vuelo.
+
+### Preprocesamiento de Datos
+
+- **Codificación y Escalado:** Las características categóricas son codificadas utilizando `OneHotEncoder`, y las características numéricas son escaladas usando `StandardScaler`.
+- **Transformación:** Se aplica la transformación en conjunto a los datos de entrada (`X`), preparándolos para el modelo.
+
+### Creación y Entrenamiento del Modelo
+
+- **Arquitectura:** Se utiliza un modelo de red neuronal profunda con dos capas ocultas de 128 y 64 nodos, regularización L2 y Dropout para evitar el sobreajuste.
+- **Compilación:** El modelo se compila con el optimizador `Adam` y la función de pérdida de error cuadrático medio (MSE).
+- **Entrenamiento:** El modelo se entrena con los datos, utilizando un conjunto de validación para monitorear el rendimiento durante el entrenamiento.
+
+### Evaluación del Modelo
+
+- **Predicción:** Se realizan predicciones en el conjunto de prueba para evaluar la capacidad del modelo de generalizar a nuevos datos.
+- **Métricas de Rendimiento:** Se calculan el Error Cuadrático Medio (MSE), Error Absoluto Medio (MAE) y el coeficiente de determinación (R²) para medir la precisión y efectividad del modelo.
+
 ## Modelo Optimizador
 
 Una vez tenemos nuestra predicción de la demanda podemos generar un modelo para optimizar la distribución de los reabastecimientos. Como primera instancia generamos la información de manera que tenemos guardado la ultima vez que cada avión aterrizó en un aeropuerto apto para abastecerse y para este modelo agrupamos por esta nueva variable. Es decir que ahora si un avión sale de Monterrey hacia Chihuahua y luego a CDMX vamos a considerar que desde Monterrey debe de traer tambien los productos para el vuelo desde Chihuahua. 

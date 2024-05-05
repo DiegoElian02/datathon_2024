@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+# import numpy as np
 import pydeck as pdk
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.multioutput import MultiOutputRegressor
+# from sklearn.ensemble import RandomForestRegressor
+# from sklearn.multioutput import MultiOutputRegressor
 import pickle
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderServiceError, GeocoderTimedOut
@@ -194,7 +194,7 @@ def prepare_flight_data(input_data):
     
     # Crear las fechas de STD y STA para usar en cálculos
     std_date = pd.Timestamp(year=std_year, month=std_month, day=std_day)
-    sta_date = pd.Timestamp(year=sta_year, month=sta_month, day=sta_day)
+    # sta_date = pd.Timestamp(year=sta_year, month=sta_month, day=sta_day)
     
     # Calcular si es temporada alta y si es fin de semana
     high_season = is_high_season(std_date)
@@ -296,7 +296,7 @@ with col2:
         features_pa = [departure_station, arrival_station, destination_type, origin_type, capacity, std_month, std_day, std_year, std_hour, sta_month, sta_day, sta_year, sta_hour]
         process_for_pass_pred = prepare_flight_data(features_pa)
         prediction_pa = predict_passangers(process_for_pass_pred)
-        st.subheader("Predicción de productos:")
+        st.subheader("Predicción de pasajeros:")
         st.write(prediction_pa)
         features_pro = [departure_station, arrival_station, destination_type, origin_type, capacity, prediction_pa, std_hour, sta_hour, std_day_of_week, sta_day_of_week]
         prediction_pro = predict_products(features_pro)
@@ -327,5 +327,15 @@ with col2:
         
         st.subheader("Predicción de Productos:")
         st.write(pd.DataFrame(prediction_pro, columns=productos))
+    df_opti = pd.read_parquet('../data/Results_OptimalBoxDistribution.parquet')
+    df_html = df_opti.to_html(index=True)
+
+    # Crear un contenedor scrolleable usando HTML/CSS
+    scrollable_container = f"""
+    <div style="height:460px;overflow-y:scroll;border:1px solid #e6e9ef;border-radius:0.25rem;padding:1rem;">
+        {df_html}
+    </div>
+    """
+    st.markdown(scrollable_container, unsafe_allow_html=True)
 
 # Nota: Asegúrate de tener las API Keys de mapbox configuradas si usas mapas con pydeck
