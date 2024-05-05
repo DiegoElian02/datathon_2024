@@ -2,10 +2,6 @@
 *.csv
 *.xlsx
 
-# Archivos de modelos
-*.pkl
-*.h5
-
 # Archivos de resultados
 *.txt
 *.json
