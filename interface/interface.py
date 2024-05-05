@@ -10,16 +10,16 @@ from geopy.exc import GeocoderServiceError, GeocoderTimedOut
 # import os
 # st.write(os.getcwd())
 
-with open(r'/models/preprocessor.pkl', 'rb') as f:
+with open('models/preprocessor.pkl', 'rb') as f:
     preprocessor = pickle.load(f)
 
-with open(r'/models/model.pkl', 'rb') as f:
+with open('models/model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-with open(r'/models/pass_encoder.pkl', 'rb') as f:
+with open('models/pass_encoder.pkl', 'rb') as f:
     pass_encoder = pickle.load(f)
 
-with open(r'/models/pass_model.pkl', 'rb') as f:
+with open('models/pass_model.pkl', 'rb') as f:
     pass_model = pickle.load(f)
 
 ciudades_por_codigo = {
@@ -329,7 +329,7 @@ with col2:
         
         st.subheader("Predicción de Productos:")
         st.write(pd.DataFrame(prediction_pro, columns=productos))
-    df_opti = pd.read_parquet(r'/data/Results_OptimalBoxDistribution.parquet')
+    df_opti = pd.read_parquet('data/Results_OptimalBoxDistribution.parquet')
     df_html = df_opti.to_html(index=True)
 
     # Crear un contenedor scrolleable usando HTML/CSS
