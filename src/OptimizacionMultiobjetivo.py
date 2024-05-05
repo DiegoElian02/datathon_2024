@@ -101,5 +101,15 @@ prob += pl.lpSum([ProductoXCaja.loc[p,t][0] * C[(t,v)] for (p,t,v) in list(itert
 prob.setObjective( pl.lpSum([R[v] for v in vuelos]))
 
 prob.solve()
-#%%
+#%%Imprimiendo 
 print(pl.LpStatus[prob.status])
+
+#%%Generando dataframe con resultados
+
+df = pd.DataFrame(list(C.items()), columns=['Key', 'Value'])
+
+df[['Tipo de Cajon', 'Vuelo']] = pd.DataFrame(df['Key'].tolist(), index=df.index)
+df.drop(columns=['Key'], inplace=True)
+df['Cantidad'] = df['Value'].apply(lambda x: x.varValue)
+df = df.drop(columns='Value')
+df = df.pivot(index='Vuelo', columns='Tipo de Cajon', values='Cantidad')
