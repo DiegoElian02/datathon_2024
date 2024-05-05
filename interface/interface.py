@@ -284,8 +284,6 @@ def obtener_coordenadas(ciudad1, ciudad2):
     coord_ciudad2 = geocode(ciudad2)
 
     return coord_ciudad1, coord_ciudad2
-c1 = ciudades_por_codigo[departure_station]
-c2 = ciudades_por_codigo[arrival_station]
 
 coordenadas1, coordenadas2 = obtener_coordenadas(ciudades_por_codigo[departure_station], ciudades_por_codigo[arrival_station])
 
@@ -293,7 +291,8 @@ coordenadas1, coordenadas2 = obtener_coordenadas(ciudades_por_codigo[departure_s
 with col2:
     st.header("Resultados y Mapa del Vuelo")
     if execute_button:
-        
+        c1 = ciudades_por_codigo[departure_station]
+        c2 = ciudades_por_codigo[arrival_station]
         # Llamada a la función de predicción (ajusta los parámetros según sea necesario)
         features_pa = [departure_station, arrival_station, destination_type, origin_type, capacity, std_month, std_day, std_year, std_hour, sta_month, sta_day, sta_year, sta_hour]
         process_for_pass_pred = prepare_flight_data(features_pa)
