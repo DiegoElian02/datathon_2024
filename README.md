@@ -1,5 +1,19 @@
 # Proyecto Viva-Aerobus Datathon 2024
 
+Tenemos un ensable de varios modelos que trabajan en conjunto para generar una predicción de los pasajeros futuros, los productos que se van a vender en esos vuelos y optimizar el reabastecimiento de estos productos en los diferentes aeropuertos disponibles. 
+
+Tenemos el deply del modelo en la nube de streamlit y una demo se puede ver en [Demo App]([URL](https://viva-optimizer.streamlit.app/)). 
+
+## Estructura del Repositorio
+Tenemos los códigos finales en la carpeta de src la cual se utiliza para generar los resultados de la app. Sin embargo, es más facil leer y tenemos implementaciones más robustas en otros archivos los cuales tienen todos los requisitos del proyecto. 
+
+- [Modelo de Prediccion de Pasajeros:](test/Passengers.ipynb) - Notebook en donde tenemos nuestro modelo final y más robusto de predicción de pasajeros el cual tiene el agregado de tomar datos metereológicos externos para realizar un mejor ajuste a muestra predicción.
+
+- [Modelo de Prediccion de Pasajeros:](src/prod_pred.py) - Archivo de python en el cual entrenamos la red neuronal encargada de manera general predecir la cantidad de producto vendido.
+
+- [Modelo de Prediccion de Pasajeros:](src/prod_pred.py) - Notebook en donde agregamos ademas del modelo general para productos, una colección de modelos especializados para los productos más vendidos.
+
+
 ## Modelado de pasajeros
 
 Se ha establecido el objetivo de predecir el volumen de pasajeros dada una base de datos que contiene la siguiente información de diferentes vuelos:
