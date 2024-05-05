@@ -1,7 +1,6 @@
 # Archivos de datos
 *.csv
 *.xlsx
-*.parquet
 
 # Archivos de modelos
 *.pkl
