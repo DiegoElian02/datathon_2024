@@ -7,7 +7,7 @@ import openpyxl
 
 #%% Procesando vuelos para agrupar hasta que lleguen a un aeropuerto apto para reabastecerse
 
-flight_df = pd.read_csv(r'..\data\Dummy_results_Jan01.csv').drop(columns=['Unnamed: 0'])
+flight_df = pd.read_csv(r'..\data\Dummy_results_Jan01_v2.csv').drop(columns=['Unnamed: 0'])
 flight_df['LastLoadChance'] = flight_df['DepartureStation']
 
 #TODO: Esto es una fuerza bruta pero funciona y es muy tarde para optimizarla
@@ -113,3 +113,5 @@ df.drop(columns=['Key'], inplace=True)
 df['Cantidad'] = df['Value'].apply(lambda x: x.varValue)
 df = df.drop(columns='Value')
 df = df.pivot(index='Vuelo', columns='Tipo de Cajon', values='Cantidad')
+df
+#%%
