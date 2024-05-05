@@ -11,7 +11,7 @@ Tenemos los códigos finales en la carpeta de src la cual se utiliza para genera
 
 - [Modelo de Predicción de Productos:](src/prod_pred.py) - Archivo de python en el cual entrenamos la red neuronal encargada de manera general predecir la cantidad de producto vendido.
 
-- [Modelo de Predicción de Productos Específicos:](testModeloProductos.ipynb) - Notebook en donde agregamos ademas del modelo general para productos, una colección de modelos especializados para los productos más vendidos. Este necesita del código del modelo general por lo que lo importante son las ultimas celdas. 
+- [Modelo de Predicción de Productos Específicos:](test/ModeloProductos.ipynb) - Notebook en donde agregamos ademas del modelo general para productos, una colección de modelos especializados para los productos más vendidos. Este necesita del código del modelo general por lo que lo importante son las ultimas celdas. 
 
 - [Optimizador de Recargas:](test/Optimizacion/FinalModel.ipynb) - Notebook en donde tenemos el modelo optimizador explicado paso a paso. Tambien se tiene su analogo para el deploy en un ``.py`` en `src`.
 
